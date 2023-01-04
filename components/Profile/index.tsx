@@ -6,8 +6,8 @@ export default function Profile() {
       <header>
          <div className="grid w-full grid-cols-1 md:grid-cols-3">
             <div className="flex flex-col items-center order-2 md:col-span-2 md:items-start">
-               <Heading>Seymen Kılıç</Heading>
-               <Text>Front-End Developer</Text>
+               <Heading fontWeight="extrabold">Seymen Kılıç</Heading>
+               <Text fontWeight="medium" mt={1}>Front-End Developer</Text>
                <Text mt={4} className='text-center md:text-start'>
                   A Developer based on Turkey. At day, Front-End, at night,
                   a Back-End developer and his glasses are cool.

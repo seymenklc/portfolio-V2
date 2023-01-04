@@ -1,16 +1,19 @@
 import { Container } from "@chakra-ui/react";
-import NavButton from "@/components/Elements/Button";
+// components
+import NavButton from "@/components/Layout/Navbar/NavButton";
+import MobileMenu from "@/components/Layout/Navbar/MobileMenu";
 import ThemeToggler from "@/components/Layout/Navbar/ThemeToggler";
 
 export default function Navbar() {
    return (
-      <Container maxW='3xl' >
+      <Container maxW='3xl' paddingX={4}>
          <nav className="flex items-center justify-between py-8">
-            <ul className="flex items-center justify-between">
-               <NavButton>Home</NavButton>
-               <NavButton>Projects</NavButton>
-               <NavButton>Dashboard</NavButton>
-               <NavButton>Statics</NavButton>
+            <MobileMenu />
+            <ul className="items-center justify-between hidden sm:flex">
+               <NavButton to="/">Home</NavButton>
+               <NavButton to="/projects">Projects</NavButton>
+               <NavButton to="/dashboard">Dashboard</NavButton>
+               <NavButton to="/statics">Statics</NavButton>
             </ul>
             <ThemeToggler />
          </nav>
