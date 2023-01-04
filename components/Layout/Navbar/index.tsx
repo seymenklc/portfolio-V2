@@ -1,6 +1,6 @@
-import { Button, Container, IconButton } from "@chakra-ui/react";
-import { SunIcon } from '@chakra-ui/icons';
+import { Container } from "@chakra-ui/react";
 import NavButton from "@/components/Elements/Button";
+import ThemeToggler from "@/components/Layout/Navbar/ThemeToggler";
 
 export default function Navbar() {
    return (
@@ -9,10 +9,10 @@ export default function Navbar() {
             <ul className="flex items-center justify-between">
                <NavButton>Home</NavButton>
                <NavButton>Projects</NavButton>
-               <NavButton>Home</NavButton>
-               <NavButton>Home</NavButton>
+               <NavButton>Dashboard</NavButton>
+               <NavButton>Statics</NavButton>
             </ul>
-            <IconButton aria-label="activate dark mode" icon={<SunIcon />} />
+            <ThemeToggler />
          </nav>
       </Container>
    );
