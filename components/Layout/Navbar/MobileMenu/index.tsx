@@ -1,5 +1,5 @@
-import HamburgerIcon from '@/public/icons/hamburger.svg';
-import { Button, IconButton } from "@chakra-ui/react";
+import HamburgerIcon from '@/public/icons/mobile.svg';
+import { Button } from "@chakra-ui/react";
 
 export default function MobileMenu() {
   return (
