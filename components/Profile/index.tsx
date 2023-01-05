@@ -1,14 +1,16 @@
-import { Heading, Text } from "@chakra-ui/react";
 import Image from "next/image";
+import { Heading, Text, useColorModeValue } from "@chakra-ui/react";
 
 export default function Profile() {
+   const textColor = useColorModeValue('gray.700', 'gray.300');
+
    return (
       <header>
          <div className="grid w-full grid-cols-1 md:grid-cols-3">
             <div className="flex flex-col items-center order-2 md:col-span-2 md:items-start">
                <Heading fontWeight="extrabold">Seymen Kılıç</Heading>
-               <Text fontWeight="medium" mt={1}>Front-End Developer</Text>
-               <Text mt={4} className='text-center md:text-start'>
+               <Text fontWeight="medium" mt={1}>Frontend Developer</Text>
+               <Text mt={4} color={textColor} className='text-center md:text-start'>
                   A Developer based on Turkey. At day, Front-End, at night,
                   a Back-End developer and his glasses are cool.
                </Text>
