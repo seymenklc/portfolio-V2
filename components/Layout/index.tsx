@@ -1,5 +1,7 @@
-import { Container } from "@chakra-ui/react";
 import { Fragment } from "react";
+// chakra-ui
+import { Container } from "@chakra-ui/react";
+// components
 import Navbar from "@/components/Layout/Navbar";
 
 interface Props {
