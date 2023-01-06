@@ -1,8 +1,12 @@
 import Image from "next/image";
-import { Heading, Text, useColorModeValue } from "@chakra-ui/react";
+import { Heading, Text, useColorMode, useColorModeValue } from "@chakra-ui/react";
 
 export default function Profile() {
+   const { colorMode } = useColorMode();
    const textColor = useColorModeValue('gray.700', 'gray.300');
+
+   const source = colorMode === "light" ? "/images/me_light.png" : "/images/me_dark.png";
+   const isDark = colorMode === 'light';
 
    return (
       <header>
@@ -17,11 +21,12 @@ export default function Profile() {
             </div>
             <div className="flex items-center justify-center md:order-2 md:justify-end">
                <Image
-                  src="/images/me.png"
+                  src={source}
                   alt="avatar"
                   width={150}
                   height={150}
-                  className="bg-[#828baa] rounded-full p-3"
+                  className={`${isDark && 'h-[150px] w-[150px] object-scale-down'}
+                  bg-[#828baa] rounded-full p-3`}
                />
             </div>
          </div>
