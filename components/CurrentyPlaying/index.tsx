@@ -6,6 +6,7 @@ import { Box, Text, useColorModeValue } from '@chakra-ui/react';
 import Spotify from '@/public/icons/spotify.svg';
 // types
 import { ICurrentlyPlaying } from '@/types/spotify';
+import Image from 'next/image';
 
 const fetcher = async (url: string) => {
    return await (await fetch(url)).json();
@@ -19,9 +20,19 @@ export default function CurrentlyPlaying() {
 
    return (
       <Box className={`flex gap-3 p-3 transition-all duration-300 rounded-md w-max ${bgColor}`}>
-         <span className='p-1 bg-black rounded-xl'>
-            <Spotify />
-         </span>
+         {!song?.isPlaying ? (
+            <span className='p-1 bg-black rounded-xl'>
+               <Spotify />
+            </span>
+         ) : (
+            <Image
+               alt='album cover'
+               width={50}
+               height={50}
+               className='rounded-xl'
+               src={song?.albumImageUrl as string}
+            />
+         )}
          <div className='flex flex-col justify-center'>
             {isLoading && <Text className='text-sm'>Loading...</Text>}
             {song?.isPlaying && (
