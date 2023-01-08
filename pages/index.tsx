@@ -1,8 +1,9 @@
-import Profile from '@/components/Profile';
-import Skills from '@/components/Skills';
 import Head from 'next/head';
 import { Fragment } from 'react';
-
+// components
+import Profile from '@/components/Profile';
+import Skills from '@/components/Skills';
+import CurrentlyPlaying from '@/components/CurrentyPlaying';
 
 export default function HomePage() {
   return (
@@ -16,6 +17,7 @@ export default function HomePage() {
       <div className='flex flex-col gap-5'>
         <Profile />
         <Skills />
+        <CurrentlyPlaying />
       </div>
     </Fragment>
   );
