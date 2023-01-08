@@ -2,7 +2,7 @@ import fs from 'fs';
 import path from 'path';
 import matter from 'gray-matter';
 
-const rootDir = path.join(process.cwd(), 'content', 'projects');
+const rootDir = path.join(process.cwd(), 'src', 'content', 'projects');
 
 const getAllProjects = () => {
    return fs.readdirSync(rootDir);
