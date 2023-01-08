@@ -1,12 +1,14 @@
+import { Fragment } from 'react';
+// next
 import useSWR from 'swr';
 import Link from 'next/link';
-import { Fragment } from 'react';
+import Image from 'next/image';
+// chakra
 import { Box, Text, useColorModeValue } from '@chakra-ui/react';
 // assets
 import Spotify from '@/public/icons/spotify.svg';
 // types
 import { ICurrentlyPlaying } from '@/types/spotify';
-import Image from 'next/image';
 
 const fetcher = async (url: string) => {
    return await (await fetch(url)).json();
@@ -29,7 +31,7 @@ export default function CurrentlyPlaying() {
                alt='album cover'
                width={50}
                height={50}
-               className='rounded-xl'
+               className='rounded-md'
                src={song?.albumImageUrl as string}
             />
          )}
@@ -40,19 +42,21 @@ export default function CurrentlyPlaying() {
                   <Text color={textColor} className="text-sm cursor-default">
                      Now Playing
                   </Text>
-                  <Text
+                  <Box
                      as={Link}
                      rel="noreferrer"
                      target='_blank'
                      href={song.songUrl}
-                     className="text-sm font-semibold cursor-pointer hover:underline"
+                     className='flex items-center gap-2 text-sm font-semibold cursor-pointer hover:underline'
                   >
-                     {song.title}
-                  </Text>
+                     <Text color={textColor}>{song.artist}</Text>
+                     <Text>{song.title}
+                     </Text>
+                  </Box>
                </Fragment>
             )}
             {!song?.isPlaying && !isLoading && (
-               <Text color={textColor} className="text-sm cursor-default">
+               <Text color={textColor} className="text-xs cursor-default">
                   Not Playing - Spotify
                </Text>
             )}
