@@ -1,8 +1,7 @@
 import Image from "next/image";
-import { Heading, Text, useColorMode, useColorModeValue } from "@chakra-ui/react";
+import { Heading, Text, useColorModeValue } from "@chakra-ui/react";
 
 export default function Profile() {
-   const { colorMode } = useColorMode();
    const textColor = useColorModeValue('gray.700', 'gray.300');
 
    return (
@@ -22,8 +21,7 @@ export default function Profile() {
                   alt="avatar"
                   width={150}
                   height={150}
-                  className={`
-                  bg-[#828baa] rounded-full p-3`}
+                  className='bg-[#828baa] rounded-full p-3'
                />
             </div>
          </div>
