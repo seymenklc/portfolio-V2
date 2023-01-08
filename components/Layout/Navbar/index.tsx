@@ -6,10 +6,10 @@ import ThemeToggler from "@/components/Layout/Navbar/ThemeToggler";
 
 export default function Navbar() {
    return (
-      <Container maxW='3xl' paddingX={4}>
+      <Container maxW='3xl' paddingX={3}>
          <nav className="flex items-center justify-between py-8">
             <MobileMenu />
-            <ul className="items-center justify-between hidden gap-1 sm:flex">
+            <ul className="items-center justify-between hidden gap-2 sm:flex">
                <NavButton to="/">Home</NavButton>
                <NavButton to="/projects">Projects</NavButton>
                <NavButton to="/dashboard">Dashboard</NavButton>

@@ -10,6 +10,7 @@ interface Props {
 
 export default function NavButton({ children, to }: Props) {
    const [isActive, setIsActive] = useState(false);
+
    const router = useRouter();
 
    useEffect(() => {
@@ -18,7 +19,7 @@ export default function NavButton({ children, to }: Props) {
    }, [router.asPath, to]);
 
    return (
-      <Button variant='ghost' size='md' href={to} as={Link} isActive={isActive}>
+      <Button variant='ghost' size='sm' href={to} as={Link} isActive={isActive} px={3}>
          {children}
       </Button>
    );

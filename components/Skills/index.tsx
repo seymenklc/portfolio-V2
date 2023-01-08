@@ -14,6 +14,7 @@ export default function Skills() {
                      aria-label={el.name}
                      icon={<el.icon />}
                      size='lg'
+                     margin={0}
                      className="transition-all duration-500 transform scale-125 hover:rotate-3 hover:scale-150"
                      variant='unstyled'
                   />
