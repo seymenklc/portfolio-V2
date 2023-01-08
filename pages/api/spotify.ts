@@ -46,16 +46,20 @@ export default async function getCurrentlyPlaying(_: NextApiRequest, res: NextAp
       return res.status(200).json({ isPlaying: false });
    }
 
-   const { is_playing, item }: SpotifyResponse = await response.json();
+   const song: SpotifyResponse = await response.json();
 
-   const songData = {
-      isPlaying: is_playing,
-      title: item.name,
-      album: item.album.name,
-      albumImageUrl: item.album.images[0].url,
-      songUrl: item.external_urls.spotify,
-      artist: item.artists.map(a => a.name).join(', '),
-   };
+   if (song) {
+      const { item, is_playing } = song;
 
-   return res.status(200).json(songData);
+      const songData = {
+         isPlaying: is_playing,
+         title: item?.name,
+         album: item?.album.name,
+         albumImageUrl: item?.album.images[0].url,
+         songUrl: item?.external_urls.spotify,
+         artist: item?.artists.map(a => a.name).join(', '),
+      };
+
+      return res.status(200).json(songData);
+   }
 };
