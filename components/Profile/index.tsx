@@ -5,9 +5,6 @@ export default function Profile() {
    const { colorMode } = useColorMode();
    const textColor = useColorModeValue('gray.700', 'gray.300');
 
-   const source = colorMode === "light" ? "/images/me_light.png" : "/images/me_dark.png";
-   const isDark = colorMode === 'light';
-
    return (
       <header>
          <div className="grid w-full grid-cols-1 md:grid-cols-3">
@@ -21,11 +18,11 @@ export default function Profile() {
             </div>
             <div className="flex items-center justify-center md:order-2 md:justify-end">
                <Image
-                  src={source}
+                  src="/images/me_dark.png"
                   alt="avatar"
                   width={150}
                   height={150}
-                  className={`${isDark && 'h-[150px] w-[150px] object-scale-down'}
+                  className={`
                   bg-[#828baa] rounded-full p-3`}
                />
             </div>
