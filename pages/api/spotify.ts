@@ -1,13 +1,15 @@
 import querystring from 'querystring';
+import { SpotifyResponse } from '@/types/spotify';
 import { NextApiRequest, NextApiResponse } from 'next';
 
 const {
    SPOTIFY_CLIENT_ID: client_id,
    SPOTIFY_CLIENT_SECRET: client_secret,
    SPOTIFY_REFRESH_TOKEN: refresh_token,
-} = process.env;
+} = process.env as { [key: string]: string; };
 
 const basic = Buffer.from(`${client_id}:${client_secret}`).toString('base64');
+
 const NOW_PLAYING_ENDPOINT = `https://api.spotify.com/v1/me/player/currently-playing`;
 const TOKEN_ENDPOINT = `https://accounts.spotify.com/api/token`;
 
@@ -24,7 +26,7 @@ const getAccessToken = async () => {
       })
    });
 
-   return response.json();
+   return response.json() as Promise<{ access_token: string; }>;
 };
 
 export const getNowPlaying = async () => {
@@ -44,21 +46,16 @@ export default async function getCurrentlyPlaying(_: NextApiRequest, res: NextAp
       return res.status(200).json({ isPlaying: false });
    }
 
-   const song = await response.json();
+   const { is_playing, item }: SpotifyResponse = await response.json();
 
-   const isPlaying = song.is_playing;
-   const title = song.item.name;
-   const artist = song.item.artists.map((_artist: { name: string; }) => _artist.name).join(', ');
-   const album = song.item.album.name;
-   const albumImageUrl = song.item.album.images[0].url;
-   const songUrl = song.item.external_urls.spotify;
+   const songData = {
+      isPlaying: is_playing,
+      title: item.name,
+      album: item.album.name,
+      albumImageUrl: item.album.images[0].url,
+      songUrl: item.external_urls.spotify,
+      artist: item.artists.map(a => a.name).join(', '),
+   };
 
-   return res.status(200).json({
-      album,
-      albumImageUrl,
-      artist,
-      isPlaying,
-      songUrl,
-      title,
-   });
+   return res.status(200).json(songData);
 };
