@@ -17,7 +17,9 @@ export default function Projects({ projects }: Props) {
         title="Projects"
         body="Here are some of my projects. I'm always working on something new, so check back often!"
       />
-      {projects.map(p => <Project key={p.meta.slug} project={p} />)}
+      <section className="flex flex-col gap-3 py-4 mt-2">
+        {projects.map(p => <Project key={p.meta.slug} project={p} />)}
+      </section>
     </div>
   );
 }

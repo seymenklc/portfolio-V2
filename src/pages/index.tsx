@@ -4,8 +4,17 @@ import Head from 'next/head';
 // components
 import Profile from '@/components/Profile';
 import Skills from '@/components/Skills';
+import FeaturedProjects from '@/components/Project/Featured';
+// utils
+import { getAllProjectsMeta } from '@/utils/project';
+// types
+import { IProject } from '@/types';
 
-export default function HomePage() {
+interface Props {
+  projects: IProject[];
+}
+
+export default function HomePage({ projects }: Props) {
   return (
     <Fragment>
       <Head>
@@ -14,10 +23,20 @@ export default function HomePage() {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <div className='flex flex-col gap-5'>
+      <div className='flex flex-col gap-12'>
         <Profile />
         <Skills />
+        <FeaturedProjects projects={projects} />
       </div>
     </Fragment>
   );
 }
+
+
+export async function getStaticProps() {
+  return {
+    props: {
+      projects: getAllProjectsMeta()
+    }
+  };
+};
