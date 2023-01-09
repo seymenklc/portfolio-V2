@@ -5,5 +5,5 @@
 html,
 body,
 #root {
-   height: 100%;
+   @apply scrollbar-thin scrollbar-thumb-slate-500 scrollbar-track-slate-600;
 }
