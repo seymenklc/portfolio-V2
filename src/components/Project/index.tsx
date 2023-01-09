@@ -18,7 +18,7 @@ export default function Project({ project }: Props) {
    return (
       <Box textColor={textColor} bgColor={bgColor} className="flex flex-col items-center gap-4 p-4 transition-all duration-500 ease-out rounded shadow-lg md:flex-row hover:scale-105">
          <Image
-            className="rounded max-md:w-full aspect-video"
+            className="object-cover object-top rounded max-md:w-full aspect-video"
             height={150}
             width={250}
             src={project.meta.coverPath}
