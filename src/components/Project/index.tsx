@@ -1,9 +1,9 @@
-import Image from "next/image";
 // chakra
 import { Box, useColorModeValue } from "@chakra-ui/react";
 // types
 import { IProject } from "@/types";
 // components
+import Cover from "@/components/Project/Cover";
 import Links from "@/components/Project/Links";
 import Details from "@/components/Project/Details";
 
@@ -17,13 +17,7 @@ export default function Project({ project }: Props) {
 
    return (
       <Box textColor={textColor} bgColor={bgColor} className="flex flex-col items-center gap-4 p-4 transition-all duration-500 ease-out rounded shadow-lg md:flex-row hover:scale-105">
-         <Image
-            className="object-cover object-top rounded max-md:w-full aspect-video"
-            height={150}
-            width={250}
-            src={project.meta.coverPath}
-            alt={project.meta.title}
-         />
+         <Cover meta={project.meta} />
          <Details project={project} />
          <Links meta={project.meta} />
       </Box>
