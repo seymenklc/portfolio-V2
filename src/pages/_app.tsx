@@ -17,6 +17,12 @@ export default function App({ Component, pageProps }: AppProps) {
   const router = useRouter();
 
   useEffect(() => {
+    window.scrollTo({
+      top: 0,
+      left: 0,
+      behavior: 'smooth'
+    });
+
     const handleStart = () => NProgress.start();
     const handleStop = () => NProgress.done();
 
