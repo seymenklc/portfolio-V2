@@ -1,5 +1,5 @@
 // chakra
-import { IconButton } from "@chakra-ui/react";
+import { IconButton, Skeleton } from "@chakra-ui/react";
 import { ExternalLinkIcon } from "@chakra-ui/icons";
 // icons
 import Github from '@/public/icons/github.svg';
@@ -14,7 +14,7 @@ interface Props {
 
 export default function Links({ meta }: Props) {
    return (
-      <div className="flex gap-3 md:flex-col">
+      <Skeleton isLoaded={Boolean(meta)} className="flex gap-3 md:flex-col">
          <IconButton
             as='a'
             href={meta.repo}
@@ -32,14 +32,10 @@ export default function Links({ meta }: Props) {
             aria-label='Preview'
          />
          <IconButton
-            // as='a'
-            // href={project.meta.previewURL}
-            // target='_blank'
-            // rel='noopener noreferrer'
             disabled
             icon={<More />}
             aria-label='More'
          />
-      </div>
+      </Skeleton>
    );
 }
