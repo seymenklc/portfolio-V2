@@ -23,7 +23,7 @@ export default function FeaturedProjects({ projects }: Props) {
             href='/projects'
             className="group"
             rightIcon={
-               <i className="transition-all duration-300 ease-in-out group-hover:translate-x-1">
+               <i className="flex items-center transition-all duration-300 ease-in-out group-hover:translate-x-1">
                   <ArrowForwardIcon />
                </i>
             }
