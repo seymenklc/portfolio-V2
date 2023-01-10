@@ -33,7 +33,7 @@ export default function Project({ project }: Props) {
    }, [inView, animation]);
 
    return (
-      <motion.div animate={animation}>
+      <motion.div animate={animation} initial={{ opacity: 0 }}>
          <Box
             ref={ref}
             textColor={textColor}
