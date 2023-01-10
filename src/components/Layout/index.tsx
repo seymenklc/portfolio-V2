@@ -3,6 +3,7 @@ import { Fragment } from "react";
 import { Container } from "@chakra-ui/react";
 // components
 import Navbar from "@/components/Layout/Navbar";
+import Footer from "@/components/Layout/Footer";
 
 interface Props {
    children: React.ReactNode;
@@ -17,7 +18,7 @@ export default function Layout({ children }: Props) {
                {children}
             </Container>
          </main>
-         {/* footer */}
+         <Footer />
       </Fragment>
    );
 }
