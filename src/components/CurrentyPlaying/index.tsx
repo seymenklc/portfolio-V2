@@ -9,10 +9,8 @@ import { Box, Text, useColorModeValue } from '@chakra-ui/react';
 import Spotify from '@/public/icons/spotify.svg';
 // types
 import { ICurrentlyPlaying } from '@/types/spotify';
-
-const fetcher = async (url: string) => {
-   return await (await fetch(url)).json();
-};
+// utils
+import { fetcher } from '@/src/utils/fetcher';
 
 export default function CurrentlyPlaying() {
    const { data: song, isLoading } = useSWR<ICurrentlyPlaying>('/api/spotify', fetcher);

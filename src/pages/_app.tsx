@@ -1,4 +1,4 @@
-import { useEffect } from 'react';
+import { Fragment, useEffect } from 'react';
 // next
 import { useRouter } from 'next/router';
 import type { AppProps } from 'next/app';
@@ -12,6 +12,7 @@ import '@/styles/globals.css';
 import 'nprogress/nprogress.css';
 // components
 import Layout from '@/components/Layout';
+import Head from 'next/head';
 
 export default function App({ Component, pageProps }: AppProps) {
   const router = useRouter();
@@ -38,10 +39,16 @@ export default function App({ Component, pageProps }: AppProps) {
   }, [router]);
 
   return (
-    <ChakraProvider theme={theme}>
-      <Layout>
-        <Component {...pageProps} />
-      </Layout>
-    </ChakraProvider>
+    <Fragment>
+      <Head>
+        <title>Seymen Kılıç</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+      </Head>
+      <ChakraProvider theme={theme}>
+        <Layout>
+          <Component {...pageProps} />
+        </Layout>
+      </ChakraProvider>
+    </Fragment>
   );
 }
