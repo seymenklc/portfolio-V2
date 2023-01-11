@@ -5,6 +5,10 @@ import { Button } from "@chakra-ui/react";
 
 interface Props {
    to: string;
+   as?: string;
+   onClick?: () => void;
+   onBlur?: () => void;
+   onFocus?: () => void;
    variant?: string;
    external?: boolean;
    children: React.ReactNode;
@@ -13,7 +17,15 @@ interface Props {
 export default function NavButton(props: Props) {
    const [isActive, setIsActive] = useState(false);
 
-   const { children, to, external = false, variant = 'ghost' } = props;
+   const {
+      to,
+      children,
+      onClick,
+      onBlur,
+      onFocus,
+      external = false,
+      variant = 'ghost'
+   } = props;
 
    const router = useRouter();
 
@@ -24,6 +36,9 @@ export default function NavButton(props: Props) {
 
    return (
       <Button
+         onBlur={onBlur && onBlur}
+         onFocus={onFocus && onFocus}
+         onClick={onClick && onClick}
          target={external ? '_blank' : '_self'}
          variant={variant}
          size='sm'
