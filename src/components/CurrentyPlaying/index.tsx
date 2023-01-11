@@ -10,10 +10,10 @@ import Spotify from '@/public/icons/spotify.svg';
 // types
 import { ICurrentlyPlaying } from '@/types/spotify';
 // utils
-import { fetcher } from '@/src/utils/fetcher';
+import { truncateOverview, fetcher } from '@/src/utils';
 
 export default function CurrentlyPlaying() {
-   const { data: song, isLoading } = useSWR<ICurrentlyPlaying>('/api/spotify', fetcher);
+   const { data: song, isLoading } = useSWR<ICurrentlyPlaying>('/api/currentTrack', fetcher);
 
    const textColor = useColorModeValue('gray.800', 'gray.400');
    const bgColor = useColorModeValue('hover:bg-slate-300', 'hover:bg-slate-800');
@@ -47,8 +47,11 @@ export default function CurrentlyPlaying() {
                      href={song.songUrl}
                      className='flex items-center gap-2 text-sm font-semibold cursor-pointer hover:underline'
                   >
-                     <Text color={textColor}>{song.artist}</Text>
-                     <Text>{song.title}
+                     <Text color={textColor}>
+                        {truncateOverview(song.artist, 20)}
+                     </Text>
+                     <Text>
+                        {truncateOverview(song.title, 20)}
                      </Text>
                   </Box>
                </Fragment>

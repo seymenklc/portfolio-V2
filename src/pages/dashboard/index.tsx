@@ -6,7 +6,7 @@ import HeadingSection from '@/src/components/HeadingSection';
 // Types
 import { IGithubUser } from '@/src/types/github';
 // utils
-import { fetcher } from '@/src/utils/fetcher';
+import { fetcher } from '@/src/utils';
 
 export default function Dashboard() {
    const { data, isLoading } = useSwr<IGithubUser>('/api/github', fetcher);

@@ -12,7 +12,7 @@ export default function Footer() {
     <Container maxW='3xl' paddingX={3}>
       <hr className="pt-5 border-t" />
       <footer className="flex flex-col items-center justify-between h-24 gap-5 p-4 mb-20 sm:mb-0 sm:flex-row sm:gap-0">
-        <span className="-ml-5"><CurrentlyPlaying /></span>
+        <span className="-ml-0 sm:-ml-5"><CurrentlyPlaying /></span>
         <nav className="flex justify-center gap-4">
           <NavButton external variant="link" to={linkedin}>
             LinkedIn

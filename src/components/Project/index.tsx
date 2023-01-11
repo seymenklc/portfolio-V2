@@ -20,7 +20,7 @@ export default function Project({ project }: Props) {
    const bgHoverColor = useColorModeValue('hover:bg-gray-300', 'hover:bg-slate-700');
 
    const animation = useAnimation();
-   const { ref, inView } = useInView({ threshold: 0.5 });
+   const { ref, inView } = useInView({ threshold: 0.1 });
 
    useEffect(() => {
       if (inView) {
