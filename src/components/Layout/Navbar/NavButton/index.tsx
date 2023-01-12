@@ -1,6 +1,8 @@
 import { useEffect, useState } from "react";
+// next
 import Link from "next/link";
 import { useRouter } from "next/router";
+// chakra
 import { Button } from "@chakra-ui/react";
 
 interface Props {
@@ -36,11 +38,11 @@ export default function NavButton(props: Props) {
 
    return (
       <Button
+         variant={variant}
          onBlur={onBlur && onBlur}
          onFocus={onFocus && onFocus}
          onClick={onClick && onClick}
          target={external ? '_blank' : '_self'}
-         variant={variant}
          size='sm'
          href={to}
          as={Link}
