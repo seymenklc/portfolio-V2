@@ -1,6 +1,7 @@
 import fs from 'fs';
 import path from 'path';
 import matter from 'gray-matter';
+import { Meta } from '@/types';
 
 const rootDir = path.join(process.cwd(), 'src', 'content', 'projects');
 
@@ -21,7 +22,12 @@ const getProjectMeta = (currentSlug: string) => {
 };
 
 export const getAllProjectsMeta = () => {
-   return getAllProjects().map(file => getProjectMeta(file));
+
+   return getAllProjects()
+      .map(file => getProjectMeta(file) as { meta: Meta; })
+      .sort((a, b) => {
+         return new Date(b.meta?.date).getTime() - new Date(a.meta.date).getTime();
+      });
 };
 
 export const GetAllSlugs = () => {

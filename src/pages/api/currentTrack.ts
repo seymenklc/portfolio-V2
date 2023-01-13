@@ -28,7 +28,7 @@ export default async function getCurrentlyPlaying(_: NextApiRequest, res: NextAp
          isPlaying: is_playing,
          title: item?.name,
          album: item?.album.name,
-         albumImageUrl: item?.album.images[0].url,
+         albumImageUrl: item?.album.images[0]?.url,
          songUrl: item?.external_urls.spotify,
          artist: item?.artists.map(a => a.name).join(', '),
       };
