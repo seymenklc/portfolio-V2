@@ -1,5 +1,5 @@
 // chakra
-import { IconButton, Skeleton } from "@chakra-ui/react";
+import { IconButton, Skeleton, Tooltip } from "@chakra-ui/react";
 import { ExternalLinkIcon } from "@chakra-ui/icons";
 // icons
 import Github from '@/public/icons/github.svg';
@@ -31,11 +31,13 @@ export default function Links({ meta }: Props) {
             icon={<ExternalLinkIcon />}
             aria-label='Preview'
          />
-         <IconButton
-            disabled
-            icon={<More />}
-            aria-label='More'
-         />
+         <Tooltip label="Project details are still a work in progress." aria-label='A tooltip'>
+            <IconButton
+               disabled
+               icon={<More />}
+               aria-label='More'
+            />
+         </Tooltip>
       </Skeleton>
    );
 }
