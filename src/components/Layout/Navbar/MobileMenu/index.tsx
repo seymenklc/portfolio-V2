@@ -23,15 +23,15 @@ export default function MobileMenu() {
   const toggle = () => setIsOpen(!isOpen);
   const hide = () => setIsOpen(false);
 
-  useOutsideClick({ ref: ref, handler: hide });
+  useOutsideClick({ ref, handler: hide });
 
   return (
     <div className="flex sm:hidden">
-      <Button onClick={toggle} variant='link' padding={1} >
+      <Button onClick={toggle} variant='link' padding={1}>
         {!isOpen ? <HamburgerIcon /> : <CloseIcon />}
       </Button>
       {isOpen && (
-        <Box bgColor={bgColor} className="absolute flex flex-col gap-2 p-4 rounded inset-y-20 left-5 bg-slate-800 h-max">
+        <Box ref={ref} bgColor={bgColor} className="absolute flex flex-col gap-2 p-4 rounded inset-y-20 left-5 bg-slate-800 h-max">
           {navigation.map(item => (
             <NavButton key={item.text} to={item.to} onClick={hide}>
               {item.text}
