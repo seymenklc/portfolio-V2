@@ -11,8 +11,8 @@ export default function Profile() {
                <Heading fontWeight="extrabold">Seymen Kılıç</Heading>
                <Text fontWeight="medium" mt={1}>Frontend Developer</Text>
                <Text mt={4} color={textColor} className='text-center md:text-start'>
-                  A Developer based on Turkey. At day, Front-End, at night,
-                  a Back-End developer and his glasses are cool.
+                  A Developer based on Turkey. Loves to build a simpler web via React/Nextjs
+                  and his glasses are cool.
                </Text>
             </div>
             <div className="flex items-center justify-center md:order-2 md:justify-end">
