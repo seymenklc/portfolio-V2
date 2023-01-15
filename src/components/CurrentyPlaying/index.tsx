@@ -4,7 +4,7 @@ import useSWR from 'swr';
 import Link from 'next/link';
 import Image from 'next/image';
 // chakra
-import { Box, Text, useColorModeValue } from '@chakra-ui/react';
+import { Box, Spinner, Text, useColorModeValue } from '@chakra-ui/react';
 // assets
 import Spotify from '@/public/icons/spotify.svg';
 // types
@@ -34,7 +34,7 @@ export default function CurrentlyPlaying() {
             />
          )}
          <div className='flex flex-col justify-center'>
-            {isLoading && <Text className='text-sm'>Loading...</Text>}
+            {isLoading && <Spinner />}
             {song?.isPlaying && (
                <Fragment>
                   <Text color={textColor} className="text-sm cursor-default">

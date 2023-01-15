@@ -1,6 +1,6 @@
 import useSwr from 'swr';
 // Components
-import Stats from '@/src/components/CurrentyPlaying/Stats';
+import Stats from '@/src/components/Dashboard/Stats';
 import Loader from '@/src/components/Dashboard/Loader';
 import HeadingSection from '@/src/components/HeadingSection';
 // Types
