@@ -1,4 +1,5 @@
 import useSwr from 'swr';
+import Lottie from 'lottie-react';
 // Components
 import Stats from '@/src/components/Dashboard/Stats';
 import Loader from '@/src/components/Dashboard/Loader';
@@ -7,6 +8,8 @@ import HeadingSection from '@/src/components/HeadingSection';
 import { IGithubUser } from '@/src/types/github';
 // utils
 import { fetcher } from '@/src/utils';
+// Lottie animation
+import animationData from '@/public/lotties/work-in-progress.json';
 
 export default function Dashboard() {
    const { data, isLoading } = useSwr<IGithubUser>('/api/github', fetcher);
@@ -21,6 +24,11 @@ export default function Dashboard() {
             {isLoading && <Loader />}
             {!isLoading && <Stats data={data} />}
          </section>
+         <Lottie
+            className='mx-auto mt-12'
+            style={{ height: 400 }}
+            animationData={animationData}
+         />
       </div>
    );
 }
