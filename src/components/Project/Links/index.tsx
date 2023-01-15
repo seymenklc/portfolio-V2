@@ -15,23 +15,27 @@ interface Props {
 export default function Links({ meta }: Props) {
    return (
       <Skeleton isLoaded={Boolean(meta)} className="flex gap-3 md:flex-col">
-         <IconButton
-            as='a'
-            href={meta.repo}
-            target='_blank'
-            rel='noopener noreferrer'
-            icon={<Github />}
-            aria-label='Github'
-         />
-         <IconButton
-            as='a'
-            href={meta.previewURL}
-            target='_blank'
-            rel='noopener noreferrer'
-            icon={<ExternalLinkIcon />}
-            aria-label='Preview'
-         />
-         <Tooltip label="Project details are still a work in progress." aria-label='A tooltip'>
+         <Tooltip label='Source Code'>
+            <IconButton
+               as='a'
+               href={meta.repo}
+               target='_blank'
+               rel='noopener noreferrer'
+               icon={<Github />}
+               aria-label='Github'
+            />
+         </Tooltip>
+         <Tooltip label='Live Preview'>
+            <IconButton
+               as='a'
+               href={meta.previewURL}
+               target='_blank'
+               rel='noopener noreferrer'
+               icon={<ExternalLinkIcon />}
+               aria-label='Preview'
+            />
+         </Tooltip>
+         <Tooltip label="Project details are still a work in progress.">
             <IconButton
                disabled
                icon={<More />}
