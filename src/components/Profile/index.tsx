@@ -11,7 +11,7 @@ export default function Profile() {
                <Heading fontWeight="extrabold">Seymen Kılıç</Heading>
                <Text fontWeight="medium" mt={1}>Frontend Developer</Text>
                <Text mt={4} color={textColor} className='text-center md:text-start'>
-                  A Self-taugt developer based on Turkey. Loves to build a simpler web via React/Nextjs
+                  A Self-taught developer based on Turkey. Loves to build a simpler web via React/Nextjs
                   and his glasses are cool.
                </Text>
             </div>
