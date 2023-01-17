@@ -15,7 +15,7 @@ interface Props {
 export default function Links({ meta }: Props) {
    return (
       <Skeleton isLoaded={Boolean(meta)} className="flex gap-3 md:flex-col">
-         <Tooltip label='Source Code'>
+         <Tooltip label='Source Code' placement="right-end" hasArrow>
             <IconButton
                as='a'
                href={meta.repo}
@@ -25,7 +25,7 @@ export default function Links({ meta }: Props) {
                aria-label='Github'
             />
          </Tooltip>
-         <Tooltip label='Live Preview'>
+         <Tooltip label='Live Preview' placement="right-end" hasArrow>
             <IconButton
                as='a'
                href={meta.previewURL}
@@ -35,7 +35,7 @@ export default function Links({ meta }: Props) {
                aria-label='Preview'
             />
          </Tooltip>
-         <Tooltip label="Project details are still a work in progress.">
+         <Tooltip label="Project details are still a work in progress." placement="right-end" hasArrow>
             <IconButton
                disabled
                icon={<More />}
