@@ -11,19 +11,35 @@ import tailwind from '@/public/icons/tailwind.svg';
 import graphql from '@/public/icons/graphql.svg';
 import mongodb from '@/public/icons/mongodb.svg';
 import redux from '@/public/icons/redux.svg';
+import nestjs from '@/public/icons/nestjs.svg';
+import typeorm from '@/public/icons/typeorm.svg';
+import postgres from '@/public/icons/postgres.svg';
+import trpc from '@/public/icons/trpc.svg';
+import aws from '@/public/icons/aws.svg';
+import vitejs from '@/public/icons/vitejs.svg';
+import webpack from '@/public/icons/webpack.svg';
+import git from '@/public/icons/git.svg';
 
 export const techStack = [
+   { name: 'Git', icon: git },
    { name: 'TypeScript', icon: typescript },
    { name: 'JavaScript', icon: javascript },
-   { name: 'Node.js', icon: nodejs },
-   { name: 'HTML', icon: html },
-   { name: 'CSS', icon: css },
+   { name: 'Vite.js', icon: vitejs },
+   { name: 'Webpack', icon: webpack },
    { name: 'React', icon: react },
    { name: 'Vue', icon: vue },
    { name: 'Next.js', icon: nextjs },
-   { name: 'Tailwind CSS', icon: tailwind },
+   { name: 'Node.js', icon: nodejs },
+   { name: "Nest.js", icon: nestjs },
+   { name: "TypeORM", icon: typeorm },
+   { name: 'TailwindCSS', icon: tailwind },
    { name: 'GraphQL', icon: graphql },
+   { name: "tRPC", icon: trpc },
    { name: 'Redux', icon: redux },
    { name: 'Firebase', icon: firebase },
+   { name: "PostgreSQL", icon: postgres },
    { name: 'MongoDB', icon: mongodb },
+   { name: 'AWS', icon: aws },
+   { name: 'CSS', icon: css },
+   { name: 'HTML', icon: html },
 ];
